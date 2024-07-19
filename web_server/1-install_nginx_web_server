@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
-# installs nginx and configure it to listen on port 80
-# print "Hello World"
+# Installs Nginx, configures it to listen on port 80, and serves a page with "Holberton School"
 
+# Update package list
 sudo apt-get -y update
+
+# Install Nginx
 sudo apt-get -y install nginx
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-sudo service nginx start
+
+# Create an HTML file with the required content
+echo 'Holberton School for the win!' | sudo tee /var/www/html/index.html > /dev/null
+
+# Restart Nginx to apply changes (not using systemctl)
+sudo service nginx restart
