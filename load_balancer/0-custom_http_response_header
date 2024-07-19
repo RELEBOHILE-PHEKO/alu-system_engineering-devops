@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Install Nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Configure Nginx to add a custom HTTP response header
+sudo tee /etc/nginx/conf.d/custom_header.conf <<EOF
+add_header X-Served-By \$hostname;
+EOF
+
+# Restart Nginx
+sudo service nginx restart
