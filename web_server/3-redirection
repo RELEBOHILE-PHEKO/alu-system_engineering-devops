@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+#/redirect_me is redirecting to another page.
 # Update package list and install Nginx
 sudo apt update
 sudo apt install -y nginx
