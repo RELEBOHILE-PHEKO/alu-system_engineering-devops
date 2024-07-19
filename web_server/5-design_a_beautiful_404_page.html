@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 Page</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
+        font-family: "Arial", sans-serif;
+        background-color: #1a1a1a;
+      }
+
+      .page {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff; /* Text color for better contrast on image */
+        text-align: center;
+      }
+
+      .page img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw; /* Full viewport width */
+        height: 100vh; /* Full viewport height */
+        object-fit: cover; /* Cover the entire viewport while maintaining aspect ratio */
+        z-index: -1; /* Place the image behind the text */
+        animation: pulse 10s infinite; /* Pulse animation */
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      header,
+      .return-link {
+        position: relative;
+        z-index: 1;
+        background: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Semi-transparent background for readability */
+        padding: 10px;
+        border-radius: 5px; /* Rounded corners for the background */
+        margin-bottom: 20px;
+        color: #fff; /* White text color */
+        font-size: 1.2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font: size 30px;
+        color: #84ff00; /* Glow color */
+        text-shadow: 0 0 10px #00ff26, 0 0 20px #00ff62, 0 0 30px #5eff00;
+      }
+
+      .return-link {
+        font-size: 1.2rem;
+        margin-top: 20px;
+      }
+
+      .return-link a {
+        text-decoration: none;
+        color: #00bfff; /* Bright color for the link */
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s; /* Smooth transition for color and scale */
+      }
+
+      .return-link a:hover {
+        color: #ff4500; /* Change color on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <img
+        src="https://api.time.com/wp-content/uploads/2016/02/the-simpsons-cartoon.jpg"
+        alt="404"
+      />
+      <header>
+        <h1>404: Ceci n'est pas une page</h1>
+      </header>
+      <p class="return-link">
+        Return to the
+        <a href="https://github.com/relebohile-pheko" target="_blank"
+          ><strong>Home</strong></a
+        >
+        page
+      </p>
+    </div>
+  </body>
+</html>
+
