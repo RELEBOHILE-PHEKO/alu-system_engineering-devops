@@ -1,17 +1,7 @@
 #!/usr/bin/env bash
-
-# Install nginx
-apt-get update
-apt-get install -y nginx
-
-# Create a new configuration file for nginx
-echo "server {
-    listen 80;
-    location / {
-        return 200 'Holberton School for the win!';
-    }
-}" > /etc/nginx/sites-available/default
-
-# Restart nginx without using systemctl
-killall nginx
-nginx
+# install nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo "<html><body>Holberton School</body></html>" > /var/www/html/index.nginx-debian.html 
+sudo killall nginx
+sudo nginx
