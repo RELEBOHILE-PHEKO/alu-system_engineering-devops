@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Set the student ID
+STUDENT_ID="your_student_id"
+
+# Set the hostnames
+hostnamectl set-hostname ${STUDENT_ID}-lb-01
+
+# Install HAproxy
+sudo apt-get update
+sudo apt-get install -y haproxy
+
+# Configure HAproxy
+sudo tee /etc/haproxy/haproxy.cfg <<EOF
+global
+    daemon
+
+defaults
+    mode http
+    timeout connect 5000
+    timeout client  50000
+    timeout server  50000
+
+frontend http
+    bind *:80
+
+    default_backend webservers
+
+backend webservers
+    mode http
+    balance roundrobin
+    server web01 ${STUDENT_ID}-web-01:80 check
+    server web02 ${STUDENT_ID}-web-02:80 check
+EOF
+
+# Restart HAproxy
+sudo service haproxy restart
+
+# Enable HAproxy to start at boot
+sudo update-rc.d haproxy defaults
