@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-# Start Apache so as to return a
-# page conatining Hello Holberton
-service apache2 start
+# Start Apache to return a
+# page returning Hello Holberton
+sudo apt-get update -y
+sudo apt-get install -y apache2
+sudo /etc/init.d/apache2 start
+echo "Hello Holberton" | sudo tee -a /var/wwww/html/index.html
+sudo /etc/init.d/apache2 restart
