@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-#Sets nginx for listening to 80 port
-sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
-sudo service nginx start
-kill -9 "$(cat /var/run/nginx.pid)"
-echo 1
-echo "* nginx is not running"
+# Script that make nginx listen to port 80
+ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx start
+kill "$(pgrep 'nginx' | head -1)"
